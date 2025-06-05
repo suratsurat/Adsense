@@ -107,31 +107,38 @@ export default function FlashcardApp() {
             style={{ transformStyle: "preserve-3d" }}
           >
 
-            <div
-              className={`absolute top-3 left-1/2 transform -translate-x-1/2 px-4 py-1 rounded-full text-sm font-semibold select-none flex items-center space-x-2 shadow-lg
-    ${flipped
-                  ? "bg-gradient-to-r from-purple-600 to-purple-800 text-white"
-                  : "bg-gradient-to-r from-indigo-400 to-indigo-600 text-white"
-                }
+       <div
+  className={`absolute top-3 left-1/3 px-4 py-1 rounded-full text-sm font-semibold select-none shadow-lg
+    ${
+      flipped
+        ? "bg-gradient-to-r from-purple-600 to-purple-800 text-white"
+        : "bg-gradient-to-r from-indigo-400 to-indigo-600 text-white"
+    }
   `}
-              style={{
-                zIndex: 10,
-                userSelect: "none",
-                transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
-              }}
-            >
-              {flipped ? (
-                <>
-                  <FiCheckCircle className="w-5 h-5" />
-                  <span>Answer</span>
-                </>
-              ) : (
-                <>
-                  <span>Question</span>
-                  <FiHelpCircle className="w-5 h-5" />
-                </>
-              )}
-            </div>
+  style={{
+    zIndex: 10,
+    userSelect: "none",
+    transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
+    minWidth: "120px",
+    maxWidth: "160px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
+  }}
+>
+  {flipped ? (
+    <>
+      <FiCheckCircle className="w-5 h-5 mr-2" />
+      <span>Answer</span>
+    </>
+  ) : (
+    <>
+      <FiHelpCircle className="w-5 h-5 mr-2" />
+      <span>Question</span>
+    </>
+  )}
+</div>
+
 
             <div
               className="absolute w-full h-full rounded-xl flex items-center justify-center text-center text-xl font-semibold text-indigo-900 p-6 whitespace-pre-wrap break-words overflow-hidden"
